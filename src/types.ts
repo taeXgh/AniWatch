@@ -24,4 +24,9 @@ export interface Product {
   created_at: string;
   user_id: string;
   // TODO: add your 5+ fields here
+  title: string;
+  genre: string;
+  episodes: number;
+  rating: number;
+  release_year: number;
 }

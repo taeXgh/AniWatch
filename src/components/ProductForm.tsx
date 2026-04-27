@@ -12,8 +12,11 @@ export default function ProductForm({ product, onSave, onCancel }: Props) {
   // each state value from `product` so the form is pre-populated.
   //
   // Example:
-  // const [title, setTitle] = useState(product?.title ?? '');
-  // const [rating, setRating] = useState(product?.rating ?? 0);
+  const [title, setTitle] = useState(product?.title ?? '');
+  const [genre, setGenre] = useState(product?.genre ?? '');
+  const [episodes, setEpisodes] = useState(product?.episodes ?? 0);
+  const [rating, setRating] = useState(product?.rating ?? 0);
+  const [releaseYear, setReleaseYear] = useState(product?.release_year ?? 0);
 
   const [error, setError] = useState<string | null>(null);
 
@@ -23,13 +26,22 @@ export default function ProductForm({ product, onSave, onCancel }: Props) {
 
     // TODO: Validate required fields, then call onSave with them.
     //
-    // if (!title.trim()) {
-    //   setError('Title is required');
-    //   return;
-    // }
+     if (!title.trim()) {
+       setError('Title is required');
+       return;
+     }
+       if (rating < 0 || rating > 5) {
+      setError('Rating must be between 0 and 5');
+      return;
+    }
+    if (!genre.trim()) {
+      setError('Genre is required');
+      return;
+    }
+
     // onSave({ title, rating, ... });
 
-    onSave({});
+    onSave({title, genre, episodes, rating, release_year: releaseYear});
   }
 
   return (
@@ -38,8 +50,7 @@ export default function ProductForm({ product, onSave, onCancel }: Props) {
       {error && <p className="error">{error}</p>}
 
       <form onSubmit={handleSubmit} style={{ maxWidth: 520 }}>
-        {/* TODO: Add one labeled <input> per field.
-
+        
             <label>
               Title
               <input
@@ -51,16 +62,45 @@ export default function ProductForm({ product, onSave, onCancel }: Props) {
             </label>
 
             <label>
-              Rating
+              Genre
+              <input
+                type="text"
+                value={genre}
+                onChange={(e) => setGenre(e.target.value)}
+              />
+            </label>
+
+            <label>
+              Episodes
               <input
                 type="number"
                 min={0}
-                max={10}
+                value={episodes}
+                onChange={(e) => setEpisodes(Number(e.target.value))}
+              />
+            </label>
+
+            <label>
+              Rating (out of 5)
+              <input
+                type="number"
+                min={0}
+                max={5}
                 value={rating}
                 onChange={(e) => setRating(Number(e.target.value))}
               />
             </label>
-        */}
+
+            <label>
+              Release Year
+              <input
+                type="number"
+                value={releaseYear}
+                min={1900}
+                onChange={(e) => setReleaseYear(Number(e.target.value))}
+              />
+            </label>
+        
 
         <div style={{ display: 'flex', gap: 8, marginTop: 12 }}>
           <button className="primary" type="submit">
