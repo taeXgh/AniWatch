@@ -111,7 +111,7 @@ export default function ProductListView({ user }: Props) {
   return (
     <div>
       <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <h1 style={{ flex: 1 }}>Products</h1>
+        <h1 style={{ flex: 1 }}>Anime List</h1>
         {/* Only signed-in users see the Add button. RLS enforces the real rule
             at the database level — this UI check just hides the affordance. */}
         {user && (

@@ -26,7 +26,7 @@ export default function NavBar({ view, setView, user }: Props) {
         Home
       </button>
       <button className={cls('list')} onClick={() => setView('list')}>
-        Products
+        Animes
       </button>
 
       <span className="spacer" />
