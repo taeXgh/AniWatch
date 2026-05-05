@@ -1,10 +1,10 @@
 :root {
-  --bg: #fafafa;
-  --fg: #111827;
+  --bg: #232b21;
+  --fg: #fafafa;
   --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #006633;
-  --accent-soft: #f1f5e8;
+  --border: #65655e;
+  --accent: #DB1515;
+  --accent-soft: #F5F9E9;
   --danger: #b91c1c;
   font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
   color: var(--fg);
@@ -30,13 +30,21 @@ h1, h2, h3 {
   color: var(--accent);
 }
 
+img {
+  max-width: 30%;
+  border-radius: 200px;
+  display: block;
+  margin: 0 auto 16px;
+}
+
 button {
   font: inherit;
   padding: 8px 14px;
   border: 1px solid var(--border);
-  background: white;
+  background: #0d160b;
   border-radius: 6px;
   cursor: pointer;
+  color: var(--fg);
 }
 
 button:hover {
@@ -80,7 +88,7 @@ label {
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: white;
+  background: #0d160b;
   border-bottom: 1px solid var(--border);
 }
 
@@ -101,7 +109,7 @@ label {
 }
 
 .card {
-  background: white;
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 16px;
