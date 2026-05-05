@@ -134,3 +134,10 @@ label {
   border-radius: 6px;
   margin: 8px 0;
 }
+
+@media (max-width: 524px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
