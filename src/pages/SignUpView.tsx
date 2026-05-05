@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { supabase } from '../lib/supabase';
-import type { View } from '../types';
+import { useState } from "react";
+import { supabase } from "../lib/supabase";
+import type { View } from "../types";
 
 interface Props {
   setView: (v: View) => void;
 }
 
 export default function SignUpView({ setView }: Props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -30,9 +30,9 @@ export default function SignUpView({ setView }: Props) {
     // If email confirmation is ON in Supabase Auth settings, there's no session
     // yet — tell the user to check their inbox. If it's OFF, we're signed in.
     if (data.session) {
-      setView('list');
+      setView("list");
     } else {
-      setMessage('Account created. Check your email to confirm, then sign in.');
+      setMessage("Account created. Check your email to confirm, then sign in.");
     }
   }
 
@@ -40,7 +40,7 @@ export default function SignUpView({ setView }: Props) {
     <div>
       <h1>Sign Up</h1>
       {error && <p className="error">{error}</p>}
-      {message && <p style={{ color: 'var(--accent)' }}>{message}</p>}
+      {message && <p style={{ color: "var(--accent)" }}>{message}</p>}
 
       <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
         <label>
@@ -63,15 +63,21 @@ export default function SignUpView({ setView }: Props) {
           />
         </label>
         <button className="primary" type="submit" disabled={loading}>
-          {loading ? 'Creating account...' : 'Sign Up'}
+          {loading ? "Creating account..." : "Sign Up"}
         </button>
       </form>
 
       <p style={{ marginTop: 16 }}>
-        Already have an account?{' '}
+        Already have an account?{" "}
         <button
-          onClick={() => setView('signin')}
-          style={{ padding: 0, border: 'none', color: 'var(--accent)', background: 'none', cursor: 'pointer' }}
+          onClick={() => setView("signin")}
+          style={{
+            padding: 0,
+            border: "none",
+            color: "var(--accent)",
+            background: "none",
+            cursor: "pointer",
+          }}
         >
           Sign In
         </button>

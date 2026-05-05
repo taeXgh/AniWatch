@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
-import type { User } from '@supabase/supabase-js';
-import { supabase } from './lib/supabase';
-import type { View } from './types';
-import NavBar from './components/NavBar';
-import HomeView from './pages/HomeView';
-import ProductListView from './pages/ProductListView';
-import SignInView from './pages/SignInView';
-import SignUpView from './pages/SignUpView';
+import { useEffect, useState } from "react";
+import type { User } from "@supabase/supabase-js";
+import { supabase } from "./lib/supabase";
+import type { View } from "./types";
+import NavBar from "./components/NavBar";
+import HomeView from "./pages/HomeView";
+import ProductListView from "./pages/ProductListView";
+import SignInView from "./pages/SignInView";
+import SignUpView from "./pages/SignUpView";
 
 export default function App() {
   // The current "page" is just a piece of state. This is the Option A
   // navigation pattern from the Project 2 assignment: no router, just a
   // conditional render keyed off a string.
-  const [view, setView] = useState<View>('home');
+  const [view, setView] = useState<View>("home");
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -32,10 +32,10 @@ export default function App() {
     <>
       <NavBar view={view} setView={setView} user={user} />
       <main>
-        {view === 'home' && <HomeView />}
-        {view === 'list' && <ProductListView user={user} />}
-        {view === 'signin' && <SignInView setView={setView} />}
-        {view === 'signup' && <SignUpView setView={setView} />}
+        {view === "home" && <HomeView />}
+        {view === "list" && <ProductListView user={user} />}
+        {view === "signin" && <SignInView setView={setView} />}
+        {view === "signup" && <SignUpView setView={setView} />}
       </main>
     </>
   );

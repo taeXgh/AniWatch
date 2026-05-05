@@ -133,9 +133,10 @@ export default function ProductListView({ user }: Props) {
           <div key={p.id} className="card">
             <h3>{p.title}</h3>
             <p>{p.genre}</p>
-            <p>Release Year: {p.release_year}  Episodes: {p.episodes} · Rating: {p.rating}/5</p>
-
-            
+            <p>
+              Release Year: {p.release_year} Episodes: {p.episodes} · Rating:{" "}
+              {p.rating}/5
+            </p>
 
             {user && (
               <div style={{ display: "flex", gap: 8, marginTop: 8 }}>

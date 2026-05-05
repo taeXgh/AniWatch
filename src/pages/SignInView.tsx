@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { supabase } from '../lib/supabase';
-import type { View } from '../types';
+import { useState } from "react";
+import { supabase } from "../lib/supabase";
+import type { View } from "../types";
 
 interface Props {
   setView: (v: View) => void;
 }
 
 export default function SignInView({ setView }: Props) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
@@ -17,11 +17,14 @@ export default function SignInView({ setView }: Props) {
     setError(null);
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     setLoading(false);
 
     if (error) setError(error.message);
-    else setView('list');
+    else setView("list");
   }
 
   return (
@@ -49,15 +52,21 @@ export default function SignInView({ setView }: Props) {
           />
         </label>
         <button className="primary" type="submit" disabled={loading}>
-          {loading ? 'Signing in...' : 'Sign In'}
+          {loading ? "Signing in..." : "Sign In"}
         </button>
       </form>
 
       <p style={{ marginTop: 16 }}>
-        Don't have an account?{' '}
+        Don't have an account?{" "}
         <button
-          onClick={() => setView('signup')}
-          style={{ padding: 0, border: 'none', color: 'var(--accent)', background: 'none', cursor: 'pointer' }}
+          onClick={() => setView("signup")}
+          style={{
+            padding: 0,
+            border: "none",
+            color: "var(--accent)",
+            background: "none",
+            cursor: "pointer",
+          }}
         >
           Sign Up
         </button>

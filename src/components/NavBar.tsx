@@ -1,6 +1,6 @@
-import type { User } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
-import type { View } from '../types';
+import type { User } from "@supabase/supabase-js";
+import { supabase } from "../lib/supabase";
+import type { View } from "../types";
 
 interface Props {
   view: View;
@@ -11,21 +11,21 @@ interface Props {
 export default function NavBar({ view, setView, user }: Props) {
   async function handleSignOut() {
     await supabase.auth.signOut();
-    setView('home');
+    setView("home");
   }
 
   // Helper: highlight the button for the current view.
-  const cls = (target: View) => (view === target ? 'active' : '');
+  const cls = (target: View) => (view === target ? "active" : "");
 
   return (
     <nav className="nav">
       {/* TODO: Replace with your app name. */}
       <span className="brand">AniWatch</span>
 
-      <button className={cls('home')} onClick={() => setView('home')}>
+      <button className={cls("home")} onClick={() => setView("home")}>
         Home
       </button>
-      <button className={cls('list')} onClick={() => setView('list')}>
+      <button className={cls("list")} onClick={() => setView("list")}>
         Animes
       </button>
 
@@ -33,17 +33,17 @@ export default function NavBar({ view, setView, user }: Props) {
 
       {user ? (
         <>
-          <span style={{ color: 'var(--muted)' }}>{user.email}</span>
+          <span style={{ color: "var(--muted)" }}>{user.email}</span>
           <button onClick={handleSignOut}>Sign Out</button>
         </>
       ) : (
         <>
-          <button className={cls('signin')} onClick={() => setView('signin')}>
+          <button className={cls("signin")} onClick={() => setView("signin")}>
             Sign In
           </button>
           <button
-            className={`primary ${cls('signup')}`}
-            onClick={() => setView('signup')}
+            className={`primary ${cls("signup")}`}
+            onClick={() => setView("signup")}
           >
             Sign Up
           </button>

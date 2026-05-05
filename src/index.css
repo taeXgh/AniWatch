@@ -3,10 +3,16 @@
   --fg: #fafafa;
   --muted: #6b7280;
   --border: #65655e;
-  --accent: #DB1515;
-  --accent-soft: #F5F9E9;
+  --accent: #db1515;
+  --accent-soft: #f5f9e9;
   --danger: #b91c1c;
-  font-family: system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif;
   color: var(--fg);
   background: var(--bg);
 }
@@ -25,7 +31,9 @@ main {
   padding: 24px;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0 0 12px;
   color: var(--accent);
 }
@@ -68,7 +76,9 @@ button.danger {
   border-color: var(--danger);
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   font: inherit;
   padding: 8px 10px;
   border: 1px solid var(--border);
